@@ -1,0 +1,44 @@
+﻿<Page
+    x:Class="SplitViewSample.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SplitViewSample"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:conv="using:SplitViewSample.Converters"
+    x:Name="rootPage"
+    DataContext="{Binding ElementName=rootPage}"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <conv:NullableBoolToBoolConverter x:Key="NullConv" />
+        <conv:SplitViewDisplayModeConverter x:Key="DisplayModeConv" />
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <CheckBox x:Name="paneOpen" Margin="8" IsThreeState="False">Open</CheckBox>
+            <ComboBox x:Name="displayModes" ItemsSource="{x:Bind SplitViewDisplayModes}" Margin="8" />
+        </StackPanel>
+
+        <SplitView Grid.Row="1" 
+                   IsPaneOpen="{x:Bind paneOpen.IsChecked, Mode=OneWay, Converter={StaticResource NullConv}}"
+                   CompactPaneLength="48"
+                   OpenPaneLength="320"
+                   PaneBackground="Blue"
+                   Background="Red"
+                   PanePlacement="Left"
+                   DisplayMode="{x:Bind displayModes.SelectedItem, Mode=OneWay, Converter={StaticResource DisplayModeConv}}">
+            <SplitView.Pane>
+                <Rectangle Fill="Blue"></Rectangle>
+            </SplitView.Pane>
+            <Grid>
+                <TextBlock Text="Content" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource HeaderTextBlockStyle}" />
+            </Grid>
+
+        </SplitView>
+    </Grid>
+</Page>
