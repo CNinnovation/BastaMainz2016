@@ -7,14 +7,14 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="40893f01-b6f3-428e-a707-9080dad5e83a"
+    Name="c882911e-f458-4ae8-b9e1-e5fdd99e3754"
     Publisher="CN=chris"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="40893f01-b6f3-428e-a707-9080dad5e83a" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="c882911e-f458-4ae8-b9e1-e5fdd99e3754" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>ChangingViews</DisplayName>
+    <DisplayName>TailoredSample</DisplayName>
     <PublisherDisplayName>chris</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -30,12 +30,12 @@
   <Applications>
     <Application Id="App"
       Executable="$targetnametoken$.exe"
-      EntryPoint="ChangingViews.App">
+      EntryPoint="TailoredSample.App">
       <uap:VisualElements
-        DisplayName="ChangingViews"
+        DisplayName="TailoredSample"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="ChangingViews"
+        Description="TailoredSample"
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />

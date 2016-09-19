@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Windows.System.Profile;
+﻿using Windows.System.Profile;
 
-namespace ChangingViews.ViewModels
+namespace TailoredSample.ViewModels
 {
     public class MainPageViewModel
     {
