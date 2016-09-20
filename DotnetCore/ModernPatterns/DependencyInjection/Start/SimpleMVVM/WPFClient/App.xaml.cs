@@ -5,7 +5,6 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using Microsoft.Extensions.DependencyInjection;
 using PortableLibrary.Services;
 using WPFClient.LocalServices;
 using PortableLibrary.ViewModels;

@@ -13,7 +13,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace WPFClient
 {
@@ -24,8 +23,8 @@ namespace WPFClient
     {
         public MainWindow()
         {
-            InitializeComponent();
 
+            InitializeComponent();
         }
 
         public MainViewModel ViewModel { get; private set; }
