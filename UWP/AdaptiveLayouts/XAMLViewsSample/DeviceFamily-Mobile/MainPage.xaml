@@ -1,8 +1,8 @@
 ﻿<Page
-    x:Class="TailoredSample.MainPage"
+    x:Class="XAMLViewsSample.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:TailoredSample"
+    xmlns:local="using:XAMLViewsSample"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
@@ -12,7 +12,7 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <TextBlock Text="{x:Bind ViewModel.Hello}" Style="{StaticResource TitleTextBlockStyle}" Margin="8" />
-        <TextBlock Grid.Row="1" Text="This is the Desktop View" Style="{StaticResource HeaderTextBlockStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <TextBlock Text="{x:Bind ViewModel.Hello}" Style="{StaticResource TitleTextBlockStyle}" />
+        <TextBlock Grid.Row="1" Text="This is the Mobile View" Style="{StaticResource HeaderTextBlockStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" />
     </Grid>
 </Page>
