@@ -30,9 +30,15 @@ namespace HamburgerMenuWithUWPCommunityToolkit
 
         public IEnumerable<MenuItem> MenuItems = new List<MenuItem>()
         {
-            new MenuItem {Title = "One" },
+            new MenuItem {Title = "One", DestinationPage=typeof(OnePage) },
             new MenuItem {Title = "Two" },
             new MenuItem {Title = "Three" }
         };
+
+        private void MenuItemClick(object sender, ItemClickEventArgs e)
+        {
+            Type destinationPage = (e.ClickedItem as MenuItem)?.DestinationPage;
+            Frame.Navigate(destinationPage);
+        }
     }
 }

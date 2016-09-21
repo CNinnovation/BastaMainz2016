@@ -43,7 +43,9 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <toolkit:HamburgerMenu
             ItemTemplate="{StaticResource ButtonTemplate}"
-            ItemsSource="{x:Bind MenuItems}">
+            ItemsSource="{x:Bind MenuItems}"
+            ItemClick="MenuItemClick"
+            >
             
             <Grid>
                 <Grid.RowDefinitions>

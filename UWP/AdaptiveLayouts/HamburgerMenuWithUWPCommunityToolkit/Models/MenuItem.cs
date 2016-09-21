@@ -9,5 +9,6 @@ namespace HamburgerMenuWithUWPCommunityToolkit.Models
     public class MenuItem
     {
         public string Title { get; set; }
+        public Type DestinationPage { get; set; }
     }
 }
