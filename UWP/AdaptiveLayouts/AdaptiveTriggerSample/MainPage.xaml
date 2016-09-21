@@ -1,0 +1,80 @@
+﻿<Page
+    x:Class="AdaptiveTriggerSample.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AdaptiveTriggerSample"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.Resources>
+            <Style TargetType="Rectangle">
+                <Setter Property="Width" Value="100" />
+                <Setter Property="Height" Value="80" />
+                <Setter Property="Margin" Value="8" />
+            </Style>
+        </Grid.Resources>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="WideState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="1024" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="rect2.(RelativePanel.RightOf)" Value="rect1" />
+                        <Setter Target="rect3.(RelativePanel.RightOf)" Value="rect2" />
+                        <Setter Target="rect4.(RelativePanel.RightOf)" Value="rect3" />
+
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="MediumState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="720" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="rect2.(RelativePanel.RightOf)" Value="rect1" />
+                        <Setter Target="rect3.(RelativePanel.RightOf)" Value="rect2" />
+                        <Setter Target="rect4.(RelativePanel.Below)" Value="rect1" />
+                        <Setter Target="rect5.(RelativePanel.AlignHorizontalCenterWithPanel)" Value="False" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="SmallState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="548" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="rect2.(RelativePanel.RightOf)" Value="rect1" />
+                        <Setter Target="rect3.(RelativePanel.Below)" Value="rect1" />
+                        <Setter Target="rect4.(RelativePanel.RightOf)" Value="rect3" />
+                        <Setter Target="rect4.(RelativePanel.Below)" Value="rect1" />
+                        <Setter Target="rect5.(RelativePanel.AlignHorizontalCenterWithPanel)" Value="False" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="XSmallState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="320" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="rect2.(RelativePanel.Below)" Value="rect1" />
+                        <Setter Target="rect3.(RelativePanel.Below)" Value="rect2" />
+                        <Setter Target="rect4.(RelativePanel.Below)" Value="rect3" />
+                        <Setter Target="rect5.(RelativePanel.AlignHorizontalCenterWithPanel)" Value="False" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+
+        <RelativePanel>
+            <Rectangle x:Name="rect1" Fill="Red" />
+            <Rectangle x:Name="rect2" Fill="Green" />
+            <Rectangle x:Name="rect3" Fill="Blue" Width="50" />
+            <Rectangle x:Name="rect4" Fill="Yellow" />
+            <Rectangle x:Name="rect5" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True"  Fill="Violet" />
+        </RelativePanel>
+    </Grid>
+</Page>
