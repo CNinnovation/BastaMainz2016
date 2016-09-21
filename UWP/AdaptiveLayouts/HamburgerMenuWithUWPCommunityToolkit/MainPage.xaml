@@ -1,0 +1,58 @@
+﻿<Page
+    x:Class="HamburgerMenuWithUWPCommunityToolkit.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HamburgerMenuWithUWPCommunityToolkit"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:HamburgerMenuWithUWPCommunityToolkit.Models"
+    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <DataTemplate x:Key="ButtonTemplate" x:DataType="models:MenuItem">
+            <Grid Width="240" Height="48">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="48"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="1" 
+                           Text="{x:Bind Title}" 
+                           Foreground="Black" 
+                           FontSize="16" 
+                           VerticalAlignment="Center"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="OptionTemplate">
+            <Grid Width="240" Height="48">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="48"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <FontIcon Grid.Column="0" 
+                          Margin="12,12,11,12" 
+                          FontFamily="Segoe MDL2 Assets" 
+                          Glyph="{Binding Glyph}" Foreground="White" />
+                <TextBlock Grid.Column="1" 
+                           Text="{Binding Name}" 
+                           Foreground="White" 
+                           FontSize="16" VerticalAlignment="Center"/>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <toolkit:HamburgerMenu
+            ItemTemplate="{StaticResource ButtonTemplate}"
+            ItemsSource="{x:Bind MenuItems}">
+            
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="48" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <TextBlock Text="Content" Grid.Row="1" VerticalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}" />
+            </Grid>
+        </toolkit:HamburgerMenu>
+        
+    </Grid>
+</Page>
