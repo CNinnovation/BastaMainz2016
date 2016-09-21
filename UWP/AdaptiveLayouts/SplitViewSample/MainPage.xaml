@@ -33,7 +33,14 @@
                    PanePlacement="Left"
                    DisplayMode="{x:Bind displayModes.SelectedItem, Mode=OneWay, Converter={StaticResource DisplayModeConv}}">
             <SplitView.Pane>
-                <Rectangle Fill="Blue"></Rectangle>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="48" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Rectangle Fill="Green" />
+                    <TextBlock Grid.ColumnSpan="2" Text="Pane" Style="{StaticResource SubheaderTextBlockStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </Grid>
             </SplitView.Pane>
             <Grid>
                 <TextBlock Text="Content" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource HeaderTextBlockStyle}" />
