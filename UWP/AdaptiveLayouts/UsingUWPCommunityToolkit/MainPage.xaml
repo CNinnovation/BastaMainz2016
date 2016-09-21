@@ -1,0 +1,88 @@
+﻿<Page
+    x:Class="UsingUWPCommunityToolkit.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UsingUWPCommunityToolkit"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:models="using:UsingUWPCommunityToolkit.Models"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <!--<DataTemplate x:Key="ButtonTemplate">
+            <Grid Width="240" Height="48">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="48"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Image Source="{x:Bind Thumbnail}" 
+                       Stretch="UniformToFill" 
+                       Margin="12,12,11,12"/>
+                <TextBlock Grid.Column="1" 
+                           Text="{x:Bind Title}" 
+                           Foreground="White" 
+                           FontSize="16" 
+                           VerticalAlignment="Center"/>
+            </Grid>
+        </DataTemplate>-->
+
+        <DataTemplate x:Key="ButtonTemplate" x:DataType="models:NavigationMenuItem">
+            <Grid Width="240" Height="48">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="48"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <FontIcon Grid.Column="0" 
+                          Margin="12,12,11,12" 
+                          FontFamily="Segoe MDL2 Assets" 
+                          Glyph="{x:Bind Glyph}"  />
+                <TextBlock Grid.Column="1" 
+                           Text="{x:Bind Name}" 
+                           FontSize="16" VerticalAlignment="Center"/>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="OptionTemplate" x:DataType="models:NavigationMenuItem">
+            <Grid Width="240" Height="48">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="48"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <FontIcon Grid.Column="0" 
+                          Margin="12,12,11,12" 
+                          FontFamily="Segoe MDL2 Assets" 
+                          Glyph="{x:Bind Glyph}"  />
+                <TextBlock Grid.Column="1" 
+                           Text="{x:Bind Name}" 
+                           FontSize="16" VerticalAlignment="Center"/>
+            </Grid>
+        </DataTemplate>
+
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <toolkit:HamburgerMenu
+            ItemTemplate="{StaticResource ButtonTemplate}"
+            OptionsItemTemplate="{StaticResource OptionTemplate}"
+            DisplayMode="CompactInline"
+            CompactPaneLength="46"
+            HamburgerHeight="46"
+            ItemsSource="{x:Bind ViewModel.Menus, Mode=OneTime}"
+            OptionsItemsSource="{x:Bind ViewModel.Options, Mode=OneTime}"
+            ItemClick="OnItemClick"
+            OptionsItemClick="OnOptionsItemClick"
+            IsPaneOpen="False">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="48"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0">
+                    <TextBlock Text="BASTA! Sample App" x:Name="Header" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Border>
+                <Image x:Name="Image" Grid.Row="1"/>
+            </Grid>
+
+        </toolkit:HamburgerMenu>
+    </Grid>
+</Page>
